@@ -9,9 +9,14 @@
 <%@ include file="common/inc.jsp"%>
 <html>
 <head>
-    <title></title>
+    <title>sign up page</title>
 </head>
 <body>
-<a href="${ctx}/signup.jsp">SIGN UP</a>
+<h1>SIGN UP PAGE</h1>
+<form action="${ctx}/user/create" method="post">
+    <input type="text" name="username" placeholder="USERNAME"><br>
+    <input type="password" name="password" placeholder="PASSWORD"><br>
+    <input type="submit" value="SIGN UP">
+</form>
 </body>
 </html>

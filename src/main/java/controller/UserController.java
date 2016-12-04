@@ -5,21 +5,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Created by Administrator on 2016/12/3.
+ * Created by Administrator on 2016/12/4.
  */
 @Controller
-@RequestMapping("user") // @WebServlet(urlPatterns = "/user")
+@RequestMapping("user")
 public class UserController {
 
     @RequestMapping("create")
     private String create(User user) {
         System.out.println(user);
-//        MyBatis...
-        return "/index.jsp";
-    }
-
-    @RequestMapping("login")
-    private String login(User user) {
-        return null;
+        return "redirect:/index.jsp";
     }
 }
