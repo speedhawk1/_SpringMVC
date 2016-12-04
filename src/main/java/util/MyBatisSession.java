@@ -8,7 +8,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.IOException;
 
 /**
- * Created by Administrator on 2016/12/4.
+ *
+ * Created by Administrator
+ * 13:31 2016/12/4.
  */
 public class MyBatisSession {
     private static SqlSessionFactory sqlSessionFactory;

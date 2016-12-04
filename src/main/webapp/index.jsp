@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="${ctx}/static/css/style.css">
 </head>
 <body>
+<form action="${ctx}/user/login" method="post">
+    <input type="text" name="username" placeholder="USERNAME"><br>
+    <input type="password" name="password" placeholder="PASSWORD"><br>
+    <input type="submit" value="LOGIN">
+</form>
+${requestScope.message}
+<hr>
 <a href="${ctx}/signup.jsp">SIGN UP</a>
 </body>
 </html>
