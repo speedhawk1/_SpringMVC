@@ -16,4 +16,5 @@ dependencies {
     compile 'org.springframework:spring-webmvc:4.3.4.RELEASE'
     compile 'jstl:jstl:1.2'
     compile 'mysql:mysql-connector-java:5.1.39'
+    compile 'org.mybatis:mybatis:3.4.1'
 }

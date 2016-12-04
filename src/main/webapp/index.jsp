@@ -9,7 +9,8 @@
 <%@ include file="common/inc.jsp"%>
 <html>
 <head>
-    <title></title>
+    <title>index page</title>
+    <link rel="stylesheet" href="${ctx}/static/css/style.css">
 </head>
 <body>
 <a href="${ctx}/signup.jsp">SIGN UP</a>
