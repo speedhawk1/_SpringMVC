@@ -24,4 +24,9 @@ public class UserDaoImpl implements UserDao {
     public void create(User user) {
         sqlSession.insert("user.create", user);
     }
+
+    @Override
+    public User query(User user) {
+        return sqlSession.selectOne("user.login", user);
+    }
 }

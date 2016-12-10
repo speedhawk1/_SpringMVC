@@ -16,20 +16,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("book")
 public class BookController extends BaseController {
 
+    private final BookDao bookDao;
+
     @Autowired
-    @Qualifier("bookDaoImpl")
-    private BookDao bookDao;
+    public BookController(@Qualifier("bookDaoImpl") BookDao bookDao) {
+        this.bookDao = bookDao;
+    }
 
     @RequestMapping("create")
     private String create(Book book) {
 //        sqlSession.insert("book.create", book);
         bookDao.create(book);
-        return "redirect:/book/query";
+        return "redirect:/book/queryAll";
     }
 
-    @RequestMapping("query")
-    private String query() {
-        session.setAttribute("books", bookDao.query());
+    @RequestMapping("queryAll")
+    private String queryAll() {
+        session.setAttribute("books", bookDao.queryAll());
         return "redirect:/home.jsp";
     }
 
@@ -42,12 +45,12 @@ public class BookController extends BaseController {
     @RequestMapping("modify")
     private String modify(Book book) {
         bookDao.modify(book);
-        return "redirect:/book/query";
+        return "redirect:/book/queryAll";
     }
 
     @RequestMapping("remove/{id}")
     private String remove(@PathVariable int id) {
         bookDao.remove(id);
-        return "redirect:/book/query";
+        return "redirect:/book/queryAll";
     }
 }

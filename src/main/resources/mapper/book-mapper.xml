@@ -6,7 +6,7 @@
     <insert id="create" parameterType="model.Book" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO test.book VALUES (NULL, #{title})
     </insert>
-    <select id="query" resultType="model.Book">
+    <select id="queryAll" resultType="model.Book">
         SELECT * FROM test.book ORDER BY id
     </select>
     <select id="search" parameterType="int" resultType="model.Book">

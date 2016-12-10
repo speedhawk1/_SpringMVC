@@ -12,7 +12,7 @@ public interface BookDao { // DeviceWriter
 
     void create(Book book);
 
-    List<Book> query();
+    List<Book> queryAll();
 
     Book search(int id);
 

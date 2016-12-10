@@ -33,7 +33,7 @@ public class BookDaoJdbcImpl implements BookDao {
     }
 
     @Override
-    public List<Book> query() {
+    public List<Book> queryAll() {
         return null;
     }
 
