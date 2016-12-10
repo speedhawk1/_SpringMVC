@@ -1,8 +1,10 @@
 package controller;
 
+import dao.BookDao;
 import model.Book;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +19,14 @@ public class BookController extends BaseController {
     @Autowired
     private SqlSession sqlSession;
 
+    @Autowired
+    @Qualifier("bookDaoJdbcImpl")
+    private BookDao bookDao;
+
     @RequestMapping("create")
     private String create(Book book) {
-        sqlSession.insert("book.create", book);
+//        sqlSession.insert("book.create", book);
+        bookDao.create(book);
         return "redirect:/book/query";
     }
 
