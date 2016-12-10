@@ -2,7 +2,6 @@ package controller;
 
 import dao.BookDao;
 import model.Book;
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
+ *
  * Created by Administrator on 2016/12/10.
  */
 @Controller
@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BookController extends BaseController {
 
     @Autowired
-    private SqlSession sqlSession;
-
-    @Autowired
-    @Qualifier("bookDaoJdbcImpl")
+    @Qualifier("bookDaoImpl")
     private BookDao bookDao;
 
     @RequestMapping("create")
@@ -32,25 +29,25 @@ public class BookController extends BaseController {
 
     @RequestMapping("query")
     private String query() {
-        session.setAttribute("books", sqlSession.selectList("book.query"));
+        session.setAttribute("books", bookDao.query());
         return "redirect:/home.jsp";
     }
 
     @RequestMapping("search/{id}")
     private String search(@PathVariable int id) {
-        session.setAttribute("book", sqlSession.selectOne("book.search", id));
+        session.setAttribute("book", bookDao.search(id));
         return "redirect:/edit.jsp";
     }
 
-    @RequestMapping("update")
-    private String update(Book book) {
-        sqlSession.update("book.update", book);
+    @RequestMapping("modify")
+    private String modify(Book book) {
+        bookDao.modify(book);
         return "redirect:/book/query";
     }
 
     @RequestMapping("remove/{id}")
     private String remove(@PathVariable int id) {
-        sqlSession.update("book.remove", id);
+        bookDao.remove(id);
         return "redirect:/book/query";
     }
 }

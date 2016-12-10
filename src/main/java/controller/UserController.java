@@ -1,5 +1,6 @@
 package controller;
 
+import dao.UserDao;
 import model.User;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +14,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("user")
 public class UserController extends BaseController {
 
-    @Autowired
     private SqlSession sqlSession;
+    private UserDao userDao;
+
+    @Autowired
+    public UserController(SqlSession sqlSession, UserDao userDao) {
+        this.sqlSession = sqlSession;
+        this.userDao = userDao;
+    }
 
     @RequestMapping("create")
     private String create(User user) {
-        sqlSession.insert("user.create", user);
+        userDao.create(user);
         return "redirect:/index.jsp";
     }
 

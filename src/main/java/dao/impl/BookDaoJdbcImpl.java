@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Created by Administrator
@@ -29,5 +30,25 @@ public class BookDaoJdbcImpl implements BookDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Book> query() {
+        return null;
+    }
+
+    @Override
+    public Book search(int id) {
+        return null;
+    }
+
+    @Override
+    public void modify(Book book) {
+
+    }
+
+    @Override
+    public void remove(int id) {
+
     }
 }

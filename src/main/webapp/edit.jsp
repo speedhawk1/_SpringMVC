@@ -20,7 +20,7 @@ ${sessionScope.user.username}
 <hr>
 <a href="${ctx}/user/logout">LOGOUT</a>
 <hr>
-<form action="${ctx}/book/update" method="post">
+<form action="${ctx}/book/modify" method="post">
     <input type="hidden" name="id" value="${sessionScope.book.id}">
     <input type="text" name="title" value="${sessionScope.book.title}"><br>
     <input type="submit" value="SAVE">
