@@ -28,7 +28,7 @@ public class UserController extends BaseController {
         if (user != null) {
             user.setPassword(null);
             session.setAttribute("user", user);
-            return "redirect:/home.jsp";
+            return "redirect:/book/query";
         } else {
             request.setAttribute("message", "invalid username or password.");
             return "/index.jsp";

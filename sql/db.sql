@@ -16,6 +16,7 @@ CREATE TABLE test.book (
 ) COMMENT '';
 
 TRUNCATE TABLE test.user;
+TRUNCATE TABLE test.book;
 
 SELECT *
 FROM test.user;
