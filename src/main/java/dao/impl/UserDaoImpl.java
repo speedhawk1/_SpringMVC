@@ -26,7 +26,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User query(User user) {
-        return sqlSession.selectOne("user.login", user);
+    public User query(String statement, User user) {
+        return sqlSession.selectOne(statement, user);
     }
 }

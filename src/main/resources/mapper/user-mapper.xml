@@ -11,4 +11,9 @@
         FROM test.user
         WHERE username = #{username} AND password = #{password}
     </select>
+    <select id="queryUserByUsername" parameterType="model.User" resultType="model.User">
+        SELECT *
+        FROM test.user
+        WHERE username = #{username}
+    </select>
 </mapper>

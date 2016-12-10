@@ -1,4 +1,4 @@
-package dao;
+package service;
 
 import model.Book;
 
@@ -8,7 +8,7 @@ import java.util.List;
  * Created by Administrator
  * 2016/12/10
  */
-public interface BookDao { // StudentDao
+public interface BookService {
 
     void create(Book book);
 

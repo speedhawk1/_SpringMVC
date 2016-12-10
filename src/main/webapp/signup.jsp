@@ -18,5 +18,6 @@
     <input type="password" name="password" placeholder="PASSWORD"><br>
     <input type="submit" value="SIGN UP">
 </form>
+${requestScope.message}
 </body>
 </html>
