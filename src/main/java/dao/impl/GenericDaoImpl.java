@@ -51,6 +51,16 @@ public class GenericDaoImpl<T extends Serializable, ID extends Serializable> imp
     }
 
     @Override
+    public T query(String statement, Object parameter) {
+        return sqlSession.selectOne(statement, parameter);
+    }
+
+    @Override
+    public List<T> queryList(String statement, Object parameter) {
+        return sqlSession.selectList(statement, parameter);
+    }
+
+    @Override
     public void remove(ID id) {
         sqlSession.delete(namespace.concat("remove"), id);
     }

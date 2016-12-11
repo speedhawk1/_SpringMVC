@@ -7,4 +7,5 @@ import model.Book;
  * 2016/12/10
  */
 public interface BookDao extends GenericDao<Book, Integer> {
+    void method();
 }

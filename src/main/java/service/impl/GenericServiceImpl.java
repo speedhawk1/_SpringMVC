@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class GenericServiceImpl<T extends Serializable, ID extends Serializable> implements GenericService<T, ID> {
 
-    private GenericDao<T, ID> genericDao;
+    GenericDao<T, ID> genericDao;
 
     public GenericServiceImpl(GenericDao<T, ID> genericDao) {
         this.genericDao = genericDao;
@@ -26,6 +26,16 @@ public class GenericServiceImpl<T extends Serializable, ID extends Serializable>
     @Override
     public List<T> queryAll() {
         return genericDao.queryAll();
+    }
+
+    @Override
+    public List<T> queryList(String statement, Object parameter) {
+        return genericDao.queryList(statement, parameter);
+    }
+
+    @Override
+    public T query(String statement, Object parameter) {
+        return genericDao.query(statement, parameter);
     }
 
     @Override

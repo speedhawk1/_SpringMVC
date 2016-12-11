@@ -16,4 +16,8 @@
         FROM test.user
         WHERE username = #{username}
     </select>
+    <select id="queryAll" resultType="model.User">
+        SELECT *
+        FROM test.user
+    </select>
 </mapper>

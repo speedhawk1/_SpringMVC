@@ -45,5 +45,11 @@ ${sessionScope.user.username}
         </tr>
     </c:forEach>
 </table>
+<hr>
+<ul>
+    <c:forEach var="user" items="${sessionScope.users}">
+        <li>${user.username}</li>
+    </c:forEach>
+</ul>
 </body>
 </html>

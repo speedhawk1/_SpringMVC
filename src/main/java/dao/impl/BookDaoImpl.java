@@ -10,4 +10,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class BookDaoImpl extends GenericDaoImpl<Book, Integer> implements BookDao {
+    @Override
+    public void method() {
+
+    }
 }

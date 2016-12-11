@@ -1,5 +1,6 @@
 package service.impl;
 
+import dao.GenericDao;
 import dao.UserDao;
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,31 +12,19 @@ import service.UserService;
  * 2016/12/10
  */
 @Service
-public class UserServiceImpl implements UserService {
-
-    private UserDao userDao;
+public class UserServiceImpl extends GenericServiceImpl<User, Integer> implements UserService {
 
     @Autowired
-    public UserServiceImpl(UserDao userDao) {
-        this.userDao = userDao;
-    }
-
-    @Override
-    public void create(User user) {
-        userDao.create(user);
-    }
-
-    @Override
-    public User query(String statement, User user) {
-        return userDao.query(statement, user);
+    public UserServiceImpl(GenericDao<User, Integer> genericDao) {
+        super(genericDao);
     }
 
     @Override
     public boolean register(User user) {
-        if (userDao.query("queryUserByUsername", user) != null) {
+        if (genericDao.query("queryUserByUsername", user) != null) {
             return false;
         }
-        userDao.create(user);
+        genericDao.create(user);
         return true;
     }
 }

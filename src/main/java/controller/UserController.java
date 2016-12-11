@@ -36,6 +36,7 @@ public class UserController extends BaseController {
         if (user != null) {
             user.setPassword(null);
             session.setAttribute("user", user);
+            session.setAttribute("users", userService.queryAll());
             return "redirect:/book/queryAll";
         } else {
             request.setAttribute("message", "invalid username or password.");

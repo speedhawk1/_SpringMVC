@@ -11,22 +11,5 @@ import org.springframework.stereotype.Repository;
  * 2016/12/10
  */
 @Repository
-public class UserDaoImpl implements UserDao {
-
-    private final SqlSession sqlSession;
-
-    @Autowired
-    public UserDaoImpl(SqlSession sqlSession) {
-        this.sqlSession = sqlSession;
-    }
-
-    @Override
-    public void create(User user) {
-        sqlSession.insert("user.create", user);
-    }
-
-    @Override
-    public User query(String statement, User user) {
-        return sqlSession.selectOne(statement, user);
-    }
+public class UserDaoImpl extends GenericDaoImpl<User, Integer> implements UserDao {
 }

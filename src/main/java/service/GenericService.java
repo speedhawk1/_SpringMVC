@@ -13,6 +13,10 @@ public interface GenericService<T extends Serializable, ID extends Serializable>
 
     List<T> queryAll();
 
+    List<T> queryList(String statement, Object parameter);
+
+    T query(String statement, Object parameter);
+
     T search(ID id);
 
     void modify(T t);
