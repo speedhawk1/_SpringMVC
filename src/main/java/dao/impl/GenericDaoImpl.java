@@ -4,6 +4,7 @@ import dao.GenericDao;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * Created by Administrator
  * 2016/12/11
  */
-public class GenericDaoImpl<T> implements GenericDao<T> {
+public class GenericDaoImpl<T extends Serializable, ID extends Serializable> implements GenericDao<T, ID> {
 
     private String namespace; // 对应于 mapper 中 namespace 的值
 
@@ -40,7 +41,7 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
     }
 
     @Override
-    public T search(int id) {
+    public T search(ID id) {
         return sqlSession.selectOne(namespace.concat("search"), id);
     }
 
@@ -50,7 +51,7 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
     }
 
     @Override
-    public void remove(int id) {
+    public void remove(ID id) {
         sqlSession.delete(namespace.concat("remove"), id);
     }
 }

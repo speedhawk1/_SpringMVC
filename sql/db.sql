@@ -16,6 +16,15 @@ CREATE TABLE test.book (
 )
   COMMENT '';
 
+
+# student
+DROP TABLE IF EXISTS test.student;
+CREATE TABLE test.student (
+  id    BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) COMMENT ''
+)
+  COMMENT '';
+
 TRUNCATE TABLE test.user;
 TRUNCATE TABLE test.book;
 

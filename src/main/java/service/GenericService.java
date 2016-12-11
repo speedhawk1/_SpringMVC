@@ -1,4 +1,4 @@
-package dao;
+package service;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,7 +7,8 @@ import java.util.List;
  * Created by Administrator
  * 2016/12/11
  */
-public interface GenericDao<T extends Serializable, ID extends Serializable> {
+public interface GenericService<T extends Serializable, ID extends Serializable> {
+
     void create(T t);
 
     List<T> queryAll();
